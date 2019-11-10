@@ -7,6 +7,17 @@ function setup() {
   let bgpage = chrome.extension.getBackgroundPage();
   let word = bgpage.word;
 
+
+  console.log(typeof(word));
+  // createP(word);
+  var list = document.createElement("ol");
+  word.forEach(word =>{
+    var li = document.createElement("li");
+    li.innerHTML = word;
+    list.appendChild(li);
+  });
+  document.getElementById("response").appendChild(list);
+  // document.getElementById("response").innerHTML = word;
   // let url = `http://api.wordnik.com:80/v4/word.json/
   // ${word}
   // /definitions?limit=1
@@ -19,13 +30,10 @@ function setup() {
   // url = url.replace(/\s+/g, '');
 
 
-  loadJSON(url, gotData);
+  //loadJSON(url, gotData);
 //data is the json object 
-  function gotData(data) {
-    createP(data[0].text).style('font-size', '48pt');
-    Hello
-  }
-
-
+  // function gotData(data) {
+  //   createP(data[0].text).style('font-size', '48pt');
+  // }
   //createP(word);
 }

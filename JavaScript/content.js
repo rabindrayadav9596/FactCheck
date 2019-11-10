@@ -12,15 +12,21 @@ function wordSelected() {
       text: selectedText
     };
 
-    var xhttp = new XMLHttpRequest();
+  var xhttp = new XMLHttpRequest();
+  xhttp.responseType = 'json';
+  var payload = new FormData();
+  payload.append('text',selectedText);
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
+     console.log(this.response);
+     chrome.runtime.sendMessage(this.response.subjective);
     }
   };
-  xhttp.open("POST", "localhost:8000/myapp1", true);
-  xhttp.send(message);
 
-   chrome.runtime.sendMessage(message);
+  xhttp.open("POST", "http://localhost:8000/myapp1/", true);
+  xhttp.send(payload);
+
+  //  chrome.runtime.sendMessage(message);
   }
 }

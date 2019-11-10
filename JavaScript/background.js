@@ -6,9 +6,9 @@ console.log('background running');
 
 chrome.runtime.onMessage.addListener(receiver);
 
-window.word = "coding train";
-
+window.word = [];
+window.targetElement = Object();
 function receiver(request, sender, sendResponse) {
   console.log(request);
-  word = request.text;
+  window.word = request;
 }

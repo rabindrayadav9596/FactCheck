@@ -3,17 +3,37 @@
   <head>
     <meta charset="UTF-8">
     <title>maze_challenge</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script type="text/javascript" src="p5.min.js"></script>
+    <script type="text/javascript" src="p5.dom.min.js"></script>
     <script type="text/javascript" src="sketch.js"></script>
     <style>
     body {
-      width: 800px;
+      width: 650px;
+      height: 250px;
+      overflow-y: scroll;
+      font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .modal {
+      position: fixed;
+      top: 10%;
+      left: 15%;
+      padding: 3%;
+      transform: translate(-50%, -50%);
+    }
+    h1{
+      font-size: 1em;
+      text-decoration: underline;
+    }
+    li{
+      font-size: 0.85em;
     }
     </style>
 
   </head>
   <body>
-    <h1>Selected text is </h1>
+    <div class="modal">
+        <h1>Subjective Sentences:</h1>
+        <div id="response"></div>
+    </div>
   </body>
 </html>
