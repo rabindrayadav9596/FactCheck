@@ -8,31 +8,33 @@
     <script type="text/javascript" src="sketch.js"></script>
     <style>
     body {
-      width: 650px;
-      height: 250px;
-      overflow-y: scroll;
+      width: 300px;
+      height: 320px;
+      overflow: auto;
       font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    .modal {
-      position: fixed;
-      top: 10%;
-      left: 15%;
-      padding: 3%;
-      transform: translate(-50%, -50%);
+    #modal {
+      /* position: fixed; */
+      width: 100%;
+      top: 6%;
+      left: 1%;
+      padding: 2%;
+      overflow-x: hidden;
+      overflow-y:scroll;
     }
     h1{
-      font-size: 1em;
+      font-size: 1.3em;
       text-decoration: underline;
     }
-    li{
-      font-size: 0.85em;
+    span,li{
+      font-size: 1.1em;
+      background-color: #ffff66
     }
     </style>
 
   </head>
   <body>
-    <div class="modal">
-        <h1>Subjective Sentences:</h1>
+    <div id="modal">
         <div id="response"></div>
     </div>
   </body>

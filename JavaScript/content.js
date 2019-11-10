@@ -5,6 +5,7 @@
 window.addEventListener('mouseup', wordSelected);
 
 function wordSelected() {
+  var hackutd_nlp_host = "https://hackutd-cognizant-nlp.herokuapp.com/myapp1/";
   let selectedText = window.getSelection().toString().trim();
   console.log(selectedText);
   if (selectedText.length > 0) {
@@ -24,7 +25,7 @@ function wordSelected() {
     }
   };
 
-  xhttp.open("POST", "http://localhost:8000/myapp1/", true);
+  xhttp.open("POST", hackutd_nlp_host, true);
   xhttp.send(payload);
 
   //  chrome.runtime.sendMessage(message);

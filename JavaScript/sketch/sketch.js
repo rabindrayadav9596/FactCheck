@@ -7,16 +7,29 @@ function setup() {
   let bgpage = chrome.extension.getBackgroundPage();
   let word = bgpage.word;
 
+  
+  if (word.length > 0){
+    var h1 = document.createElement("h1");
+    h1.innerHTML = "Subjective Sentences";
+    var list = document.createElement("ol");
+    word.forEach(word =>{
+      var li = document.createElement("li");
+      var span = document.createElement("span")
+      li.innerHTML = word;
+      span.appendChild(li)
+      list.appendChild(span);
+    });
+    document.getElementById("response").appendChild(h1);
+    document.getElementById("response").appendChild(list);
+  }else{
+    var h1 = document.createElement("h1");
+    h1.innerHTML = "No subjective sentences identified in the highlighted text.";
+    document.getElementById("response").appendChild(h1);
+  }
+  
 
-  console.log(typeof(word));
-  // createP(word);
-  var list = document.createElement("ol");
-  word.forEach(word =>{
-    var li = document.createElement("li");
-    li.innerHTML = word;
-    list.appendChild(li);
-  });
-  document.getElementById("response").appendChild(list);
+  
+  
   // document.getElementById("response").innerHTML = word;
   // let url = `http://api.wordnik.com:80/v4/word.json/
   // ${word}
